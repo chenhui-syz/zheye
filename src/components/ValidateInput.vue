@@ -41,6 +41,7 @@ export default defineComponent({
       default: 'input'
     }
   },
+  // 禁用attribute继承
   inheritAttrs: false,
   setup(props, context) {
     const inputRef = reactive({
