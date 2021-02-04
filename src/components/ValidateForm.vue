@@ -3,6 +3,7 @@
     <slot name="default"></slot>
     <div class="submit-area" @click.prevent="submitForm">
       <slot name="submit">
+        <!-- 什么都不填，会显示下面这个默认的内容 -->
         <button type="submit" class="btn btn-primary">提交</button>
       </slot>
     </div>
