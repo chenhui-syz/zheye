@@ -31,7 +31,7 @@
         <label class="form-label">重复密码</label>
         <validate-input
           type="password"
-          placeholder="请再次密码"
+          placeholder="请再次输入密码"
           :rules="repeatPasswordRules"
           v-model="formData.repeatPassword"
         />

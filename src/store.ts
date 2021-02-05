@@ -53,7 +53,7 @@ export interface GlobalDataProps {
   posts: { data: ListProps<PostProps>; loadedColumns: string[] };
   user: UserProps;
 }
-const asyncAndCommit = async(url: string, mutationName: string,
+const asyncAndCommit = async (url: string, mutationName: string,
   commit: Commit, config: AxiosRequestConfig = { method: 'get' }, extraData?: any) => {
   const { data } = await axios(url, config)
   if (extraData) {
@@ -172,6 +172,7 @@ const store = createStore<GlobalDataProps>({
     deletePost({ commit }, id) {
       return asyncAndCommit(`/posts/${id}`, 'deletePost', commit, { method: 'delete' })
     },
+    // 组合两个actions
     loginAndFetch({ dispatch }, loginData) {
       return dispatch('login', loginData).then(() => {
         return dispatch('fetchCurrentUser')

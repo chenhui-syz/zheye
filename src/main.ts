@@ -20,6 +20,7 @@ axios.interceptors.response.use(config => {
   const { error } = e.response.data
   store.commit('setError', { status: true, message: error })
   store.commit('setLoading', false)
+  // 抛出的错误可以在axios请求的时候通过catch进行捕获
   return Promise.reject(e.response.data)
 })
 const app = createApp(App)
