@@ -67,6 +67,7 @@ export default defineComponent({
         }
         fileStatus.value = 'loading'
         const formData = new FormData()
+        // 因为只支持单文件上传，拿到第一个数据，并将其保存到formData中
         formData.append('file', files[0])
         axios.post(props.action, formData, {
           headers: {
