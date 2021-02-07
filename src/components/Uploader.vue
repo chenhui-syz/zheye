@@ -40,6 +40,7 @@ export default defineComponent({
   inheritAttrs: false,
   emits: ['file-uploaded', 'file-uploaded-error'],
   setup(props, context) {
+    // fileInput要和ref的命名一样，这样才能获取到指定的元素
     const fileInput = ref<null | HTMLInputElement>(null)
     console.log(props.uploaded)
     const fileStatus = ref<UploadStatus>(props.uploaded ? 'success' : 'ready')
