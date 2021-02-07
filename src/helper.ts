@@ -57,7 +57,13 @@ export const arrToObj = <T extends { _id?: string }>(arr: Array<T>) => {
 }
 const result = arrToObj(testData)
 console.log(result)
+// 打印结果：
+// {
+//   1:{_id:"1",name:"a"}
+//   2:{_id:"2",name:"b"}
+// }
 export const objToArr = <T>(obj: {[key: string]: T}) => {
+  // Object.keys() 方法会返回一个由一个给定对象的自身可枚举属性组成的数组，数组中属性名的排列顺序和正常循环遍历该对象时返回的顺序一致 。
   return Object.keys(obj).map(key => obj[key])
 }
 const testData2: {[key: string]: TestProps} = {

@@ -99,9 +99,20 @@ const store = createStore<GlobalDataProps>({
       state.posts.data[rawData.data._id] = rawData.data
     },
     deletePost(state, { data }) {
+      // 原来的写法
+      // state.posts = state.posts.filter(post => post.id !== data._id)
+      // 不再需要循环了
       delete state.posts.data[data._id]
     },
     updatePost(state, { data }) {
+      // 原来的写法
+      // state.posts = state.posts.map(post =>{
+      //   if(post._id === data._id){
+      //     return data
+      //   }else{
+      //     return post
+      //   }
+      // })
       state.posts.data[data._id] = data
     },
     setLoading(state, status) {
@@ -184,12 +195,18 @@ const store = createStore<GlobalDataProps>({
       return objToArr(state.columns.data)
     },
     getColumnById: (state) => (id: string) => {
+      // 原来的写法：
+      // return state.columns.find(c=>c._id === id)
       return state.columns.data[id]
     },
     getPostsByCid: (state) => (cid: string) => {
+      // 原来的写法：
+      // return state.posts.filter(post=>post.column === cid)
       return objToArr(state.posts.data).filter(post => post.column === cid)
     },
     getCurrentPost: (state) => (id: string) => {
+      // 原来的写法：
+      // return state.posts.find(post=>post._id === id)
       return state.posts.data[id]
     }
   }
